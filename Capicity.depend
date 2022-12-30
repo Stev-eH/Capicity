@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1672399542 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\main.cpp
+	<iostream>
+	"CapycitySim.h"
+
+1672400067 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\capycitysim.h
+
+1672399613 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\capycitysim.cpp
+	"CapycitySim.h"
+	<iostream>
+
