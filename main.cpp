@@ -28,7 +28,7 @@ int main()
     //area[0] = getSizeX();
     //area[1] = getSizeY();
     //cout << "x = " << area[0] << " y = " << area[1] << endl;
-    const int x = getX(00);
+    const int x = getX(0);
     const int y = getY(0);
 
     //Erstellung eines Arrays, welches den Baubereich repräsentiert.Elemente sollen dabei ein Enum sein,
