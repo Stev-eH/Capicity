@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include "CapycitySim.h"
+#include "Material.h"
+#include "Building.h"
 
 using namespace std;
 
@@ -11,6 +13,8 @@ int main()
 
 CapycitySim sim;
 sim.showMenu();
+
+Holz h;
 
 } // main()
 

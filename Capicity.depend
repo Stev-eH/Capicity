@@ -1,11 +1,42 @@
 # depslib dependency file v1.0
-1672399542 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\main.cpp
+1672403577 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\main.cpp
 	<iostream>
 	"CapycitySim.h"
+	"Material.h"
+	"Building.h"
 
-1672400067 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\capycitysim.h
+1672401035 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\capycitysim.h
 
-1672399613 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\capycitysim.cpp
+1672401035 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\capycitysim.cpp
 	"CapycitySim.h"
 	<iostream>
+
+1672402454 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\holz.cpp
+	"Holz.h"
+
+1672403728 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\holz.h
+	<Material.h>
+
+1672404032 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\material.h
+
+1672402402 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\kunststoff.cpp
+	"kunststoff.h"
+
+1672402447 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\kunststoff.h
+	<Material.h>
+
+1672404108 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\material.cpp
+	"Material.h"
+
+1672402443 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\metall.h
+	<Material.h>
+
+1672402376 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\metall.cpp
+	"Metall.h"
+
+1672403196 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\building.cpp
+	"Building.h"
+
+1672404347 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\building.h
+	"Material.h"
 

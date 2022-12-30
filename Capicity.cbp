@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 		</Build>
@@ -20,7 +21,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Building.h" />
+		<Unit filename="include/CapycitySim.h" />
+		<Unit filename="include/Material.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Building.cpp" />
+		<Unit filename="src/CapycitySim.cpp" />
+		<Unit filename="src/Material.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
