@@ -14,7 +14,5 @@ int main()
 CapycitySim sim;
 sim.showMenu();
 
-Holz h;
-
 } // main()
 

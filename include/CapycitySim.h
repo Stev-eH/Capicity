@@ -10,6 +10,9 @@ class CapycitySim
         int x;
         int y;
 
+        //TO-DO:
+        //  Zuweisungsoperator
+        //  Kopierkonstruktor
         CapycitySim();
         ~CapycitySim();
         int getVar(int type, bool isX);

@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1672403577 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\main.cpp
+1672417317 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\main.cpp
 	<iostream>
 	"CapycitySim.h"
 	"Material.h"
 	"Building.h"
 
-1672401035 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\capycitysim.h
+1672414407 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\capycitysim.h
 
-1672401035 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\capycitysim.cpp
+1672417568 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\capycitysim.cpp
 	"CapycitySim.h"
 	<iostream>
 
@@ -34,9 +34,12 @@
 1672402376 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\metall.cpp
 	"Metall.h"
 
-1672403196 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\building.cpp
+1672417236 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\building.cpp
 	"Building.h"
+	"Material.h"
+	<iostream>
 
-1672404347 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\building.h
+1672416602 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\building.h
+	<vector>
 	"Material.h"
 

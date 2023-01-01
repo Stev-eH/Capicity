@@ -56,9 +56,10 @@ void CapycitySim::showMenu()
 			break;
 		default:
 			choice = 0;
-		}
-		cin.clear();
+					cin.clear();
 		cin.ignore(100, '\n');
+		}
+
 	}
 } // showMenu()
 
@@ -177,7 +178,6 @@ void CapycitySim::setBuilding(bool place)
 			}
 		}
 	}
-	return;
 }
 
 int CapycitySim::getVar(int type, bool isX)
