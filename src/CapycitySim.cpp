@@ -1,5 +1,6 @@
 #include "CapycitySim.h"
-#include <iostream>>
+
+#include <iostream>
 
 using namespace std;
 
@@ -7,13 +8,13 @@ CapycitySim::CapycitySim()
 {
 	x = getVar(0, true);
 	y = getVar(0, false);
-	area = new gebaeude[y * x];
+	area = new Building[y * x];
 	// init area
 	for (int i = 0; i < y; i++)
 	{
 		for (int j = 0; j < x; j++)
 		{
-			area[(i * x) + j] = LEER;
+			area[(i * x) + j] = Building();
 		}
 	}
 }
@@ -56,38 +57,44 @@ void CapycitySim::showMenu()
 			break;
 		default:
 			choice = 0;
-					cin.clear();
-		cin.ignore(100, '\n');
+			cin.clear();
+			cin.ignore(100, '\n');
 		}
-
 	}
 } // showMenu()
 
 void CapycitySim::drawField()
 {
+	int priceTotal = 0;
 	for (int i = 0; i < y; i++)
 	{
-		cout << endl;
+			cout << endl;
 		for (int j = 0; j < x; j++)
 		{
-			switch (area[(i * x) + j])
+			cout << area[(i * x) + j].getLabel();
+			if(!area[(i * x) + j].isEmpty)
 			{
-			case 0:
-				cout << "0";
-				break;
-			case 1:
-				cout << "~";
-				break;
-			case 2:
-				cout << "x";
-				break;
-			case 3:
-				cout << "#";
-				break;
+				priceTotal += area[(i * x) + j].getBasePrice();
 			}
 		}
 	}
-	cout << endl << endl;
+	cout << endl;
+//Erweitere das Ausdrucken des Plans um die Darstellung der Gebäude mit ihren Labels, einer
+//Auflistung der Gebäude sowie deren benötigter Materialien, dem Einzelpreis eines Gebäudes
+//sowie dem Gesamtpreis von allen Gebäuden
+	for(int i = 0; i < y; i++)
+	{
+		for(int j = 0; j < x; j++)
+		{
+			if(!area[(i * x) + j].isEmpty)
+			{
+
+                		cout << endl;
+				cout << "x: " << j << " y: " << i << " "<< area[(i * x) + j].toString();
+			}
+		}
+	}
+	cout << endl << endl << "Gesamtpreis: " << priceTotal << endl;
 } // drawField()
 
 void CapycitySim::setBuilding(bool place)
@@ -160,19 +167,33 @@ void CapycitySim::setBuilding(bool place)
 				{
 					if (place)
 					{
-						if (k == 0 && area[(i * x + posY * x) + j + posX] != LEER)
+						// Mit getLabel wird die Gebaeudeart ueberprueft
+						if (k == 0 && area[(i * x + posY * x) + j + posX].getLabel() != '0')
 						{
 							full = true;
 							cout << "In dem momentanem Baubereich steht schon ein Gebaeude!!" << endl;
 						}
 						else if (k == 1 && full == false)
 						{
-							area[(i * x + posY * x) + j + posX] = gebaeude(choice);
+							if(choice == 1)
+							{
+								area[(i * x + posY * x) + j + posX] = Wasserkraftwerk();
+							}
+							else if(choice == 2)
+							{
+								area[(i * x + posY * x) + j + posX] = Windkraftwerk();
+							}
+							else if(choice == 3)
+							{
+								area[(i * x + posY * x) + j + posX] = Solarpanel();
+							}
+							else
+								;// Unreachable
 						}
 					}
 					else
 					{
-						area[(i * x + posY * x) + j + posX] = LEER;
+						area[(i * x + posY * x) + j + posX] = Building();
 					}
 				}
 			}

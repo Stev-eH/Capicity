@@ -1,12 +1,14 @@
 #ifndef CAPYCITYSIM_H
 #define CAPYCITYSIM_H
 
-enum gebaeude { LEER = 0, WASSERKRAFTWERK = 1, WINDKRAFTWERK = 2, SOLARPANELE = 3 };
+#include "Building.h"
+#include "Material.h"
+
 
 class CapycitySim
 {
     public:
-        gebaeude* area;
+        Building* area;
         int x;
         int y;
 

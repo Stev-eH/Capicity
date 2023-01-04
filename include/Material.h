@@ -1,30 +1,41 @@
 #ifndef MATERIAL_H
 #define MATERIAL_H
 
+#include <string>
+
 class Material
 {
-    public:
-        double price;
-        Material();
-        getPrice();
+public:
+	Material();
+	std::string getName()
+	{
+		return name;
+	}
+double getPrice()
+	{
+		return price;
+	}
+protected:
+	double price;
+	std::string name;
 };
 
 class Holz : public Material
 {
-    public:
-        Holz();
+public:
+	Holz();
 };
 
 class Metall : public Material
 {
-    public:
-        Metall();
+public:
+	Metall();
 };
 
 class Kunststoff : public Material
 {
-    public:
-        Kunststoff();
+public:
+	Kunststoff();
 };
 
 #endif // MATERIAL_H

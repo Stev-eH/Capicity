@@ -3,23 +3,25 @@
 Material::Material()
 {
     price = 0.0;
+    name = "";
 }
-
-Material::getPrice() {return price;}
 
 Holz::Holz()
 {
     price = 30.0;
+    name = "Holz";
 }
 
 Metall::Metall()
 {
     price = 80.0;
+    name = "Metall";
 }
 
 Kunststoff::Kunststoff()
 {
     price = 20.0;
+    name = "Kunststoff";
 }
 
 
