@@ -71,7 +71,7 @@ void CapycitySim::drawField()
 			cout << endl;
 		for (int j = 0; j < x; j++)
 		{
-			cout << area[(i * x) + j].getLabel();
+			cout << area[(i * x) + j].getLabel() << " ";
 			if(!area[(i * x) + j].isEmpty)
 			{
 				priceTotal += area[(i * x) + j].getBasePrice();

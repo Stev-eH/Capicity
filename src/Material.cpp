@@ -24,4 +24,13 @@ Kunststoff::Kunststoff()
     name = "Kunststoff";
 }
 
+// Noetig um Maps zu fuellen
+bool Material::operator<(const Material& other) const
+{
+    if(price < other.price)
+        return true;
+
+    return false;
+}
+
 

@@ -8,8 +8,6 @@ using namespace std;
 
 int main()
 {
-Wasserkraftwerk w0;
-cout << w0.toString();
 
 CapycitySim sim;
 sim.showMenu();

@@ -7,14 +7,15 @@ class Material
 {
 public:
 	Material();
-	std::string getName()
+	std::string getName() const
 	{
 		return name;
 	}
-double getPrice()
+double getPrice() const
 	{
 		return price;
 	}
+	bool operator<(const Material& other) const;
 protected:
 	double price;
 	std::string name;

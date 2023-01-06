@@ -4,18 +4,20 @@
 #include <vector>
 #include "Material.h"
 #include <string>
+#include <map>
 
 
 class Building
 {
 public:
 	Building();
+	std::map<Material, int> materialien;
 	double getBasePrice() {return basePrice;}
 	double getPriceTotal();
 	char getLabel() {return label;}
 		bool isEmpty;
 		std::string toString();
-		std::string getName() {return name;}
+		std::string getName() const {return name;}
 protected:
     	double basePrice;
 	char label;
