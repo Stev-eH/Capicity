@@ -10,30 +10,44 @@
 class Building
 {
 public:
-	Building();
-	std::map<Material, int> materialien;
-	double getBasePrice() {return basePrice;}
-	double getPriceTotal();
-	char getLabel() {return label;}
-		bool isEmpty;
-		std::string toString();
-		std::string getName() const {return name;}
+    Building();
+    std::map<Material, int> materialien;
+    double getBasePrice()
+    {
+        return basePrice;
+    }
+    double getPriceTotal();
+    char getLabel()
+    {
+        return label;
+    }
+    bool isEmpty;
+    std::string toString();
+    std::string getName() const
+    {
+        return name;
+    }
+    int getLeistung()
+    {
+        return leistung;
+    }
 protected:
-    	double basePrice;
-	char label;
-	int length;
-	int height;
-	int areaSize;
-	int numElementsPerUnit;
-	std::string name;
-	std::vector<Material> materialsPerUnit;
+    double basePrice;
+    char label;
+    int length;
+    int height;
+    int areaSize;
+    int numElementsPerUnit;
+    int leistung;
+    std::string name;
+    std::vector<Material> materialsPerUnit;
 
 };
 
 class Wasserkraftwerk : public Building
 {
 public:
-	Wasserkraftwerk();
+    Wasserkraftwerk();
 };
 
 class Windkraftwerk : public Building

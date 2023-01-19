@@ -19,6 +19,7 @@ Wasserkraftwerk::Wasserkraftwerk()
     numElementsPerUnit = 3;
     isEmpty = false;
     name = "Wasserkraftwerk";
+    leistung = 1000;
     materialsPerUnit = {Holz(), Holz(), Metall()};
     materialien.insert({Holz(), 2});
     materialien.insert({Metall(), 1});
@@ -31,6 +32,7 @@ Windkraftwerk::Windkraftwerk()
     numElementsPerUnit = 5;
     isEmpty = false;
     name = "Windkraftwerk";
+    leistung = 800;
     materialsPerUnit = {Metall(), Metall(), Metall(), Kunststoff(), Holz()};
     materialien.insert({Metall(), 3});
     materialien.insert({Kunststoff(), 1});
@@ -44,6 +46,7 @@ Solarpanel::Solarpanel()
     numElementsPerUnit = 4;
     isEmpty = false;
     name = "Solarpanel";
+    leistung = 1200;
     materialsPerUnit = {Kunststoff(), Kunststoff(), Kunststoff(), Metall()};
     materialien.insert({Kunststoff(), 3});
     materialien.insert({Metall(), 1});
