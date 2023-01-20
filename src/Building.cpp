@@ -14,6 +14,7 @@ Building::Building()
 
 Wasserkraftwerk::Wasserkraftwerk()
 {
+<<<<<<< HEAD
     //Changed prices and power for better Identifier calculation
 	basePrice = 430.5;
 	label = '~';
@@ -24,10 +25,21 @@ Wasserkraftwerk::Wasserkraftwerk()
 	materialsPerUnit = {Holz(), Holz(), Metall()};
 	materialien.insert({Holz(), 2});
 	materialien.insert({Metall(), 1});
+=======
+    basePrice = 4300.5;
+    label = '~';
+    numElementsPerUnit = 3;
+    isEmpty = false;
+    name = "Wasserkraftwerk";
+    materialsPerUnit = {Holz(), Holz(), Metall()};
+    materialien.insert({Holz(), 2});
+    materialien.insert({Metall(), 1});
+>>>>>>> parent of d947e68 (Start Aufgabe 4)
 }
 
 Windkraftwerk::Windkraftwerk()
 {
+<<<<<<< HEAD
 	basePrice = 1300.0;
 	label = 'x';
 	numElementsPerUnit = 5;
@@ -38,10 +50,22 @@ Windkraftwerk::Windkraftwerk()
 	materialien.insert({Metall(), 3});
 	materialien.insert({Kunststoff(), 1});
 	materialien.insert({Holz(), 1});
+=======
+    basePrice = 13000.0;
+    label = 'x';
+    numElementsPerUnit = 5;
+    isEmpty = false;
+    name = "Windkraftwerk";
+    materialsPerUnit = {Metall(), Metall(), Metall(), Kunststoff(), Holz()};
+    materialien.insert({Metall(), 3});
+    materialien.insert({Kunststoff(), 1});
+    materialien.insert({Holz(), 1});
+>>>>>>> parent of d947e68 (Start Aufgabe 4)
 }
 
 Solarpanel::Solarpanel()
 {
+<<<<<<< HEAD
 	basePrice = 500.0;
 	label = '#';
 	numElementsPerUnit = 4;
@@ -51,6 +75,16 @@ Solarpanel::Solarpanel()
 	materialsPerUnit = {Kunststoff(), Kunststoff(), Kunststoff(), Metall()};
 	materialien.insert({Kunststoff(), 3});
 	materialien.insert({Metall(), 1});
+=======
+    basePrice = 5000.0;
+    label = '#';
+    numElementsPerUnit = 4;
+    isEmpty = false;
+    name = "Solarpanel";
+    materialsPerUnit = {Kunststoff(), Kunststoff(), Kunststoff(), Metall()};
+    materialien.insert({Kunststoff(), 3});
+    materialien.insert({Metall(), 1});
+>>>>>>> parent of d947e68 (Start Aufgabe 4)
 }
 
 double Building::getPriceTotal()
