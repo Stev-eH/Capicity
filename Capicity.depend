@@ -1,13 +1,15 @@
 # depslib dependency file v1.0
-1672581342 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\main.cpp
+1674134729 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\main.cpp
 	<iostream>
 	"CapycitySim.h"
 
-1672579765 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\capycitysim.h
+1674217042 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\capycitysim.h
+	<vector>
+	"blueprint.h"
 	"Building.h"
 	"Material.h"
 
-1672581261 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\capycitysim.cpp
+1674220170 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\capycitysim.cpp
 	"CapycitySim.h"
 	<iostream>
 
@@ -17,7 +19,7 @@
 1672403728 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\holz.h
 	<Material.h>
 
-1672581203 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\material.h
+1674130392 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\material.h
 	<string>
 
 1672402402 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\kunststoff.cpp
@@ -26,7 +28,7 @@
 1672402447 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\kunststoff.h
 	<Material.h>
 
-1672580945 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\material.cpp
+1674130392 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\material.cpp
 	"Material.h"
 
 1672402443 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\metall.h
@@ -35,15 +37,16 @@
 1672402376 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\metall.cpp
 	"Metall.h"
 
-1672581877 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\building.cpp
+1674214351 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\building.cpp
 	"Building.h"
 	"Material.h"
 	<iostream>
 
-1672581222 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\building.h
+1674130392 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\building.h
 	<vector>
 	"Material.h"
 	<string>
+	<map>
 
 1672927788 source:c:\users\user\desktop\programming\capicity\main.cpp
 	<iostream>
@@ -73,4 +76,11 @@
 
 1672931428 source:c:\users\user\desktop\programming\capicity\src\material.cpp
 	"Material.h"
+
+1674215384 c:\users\steffen\desktop\practives makes perfect\capicity\capicity\include\blueprint.h
+	"Building.h"
+
+1674219819 source:c:\users\steffen\desktop\practives makes perfect\capicity\capicity\src\blueprint.cpp
+	<iostream>
+	"blueprint.h"
 

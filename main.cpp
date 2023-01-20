@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-
+cout << "Willkommen beim Capycity-Bausimulator!" << endl;
 CapycitySim sim;
 sim.showMenu();
 

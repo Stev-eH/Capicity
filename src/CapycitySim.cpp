@@ -6,51 +6,47 @@ using namespace std;
 
 CapycitySim::CapycitySim()
 {
-	x = getVar(0, true);
-	y = getVar(0, false);
-	area = new Building[y * x];
-	// init area
-	for (int i = 0; i < y; i++)
-	{
-		for (int j = 0; j < x; j++)
-		{
-			area[(i * x) + j] = Building();
-		}
-	}
+	currentPlan = new Blueprint();
 }
 
 CapycitySim::~CapycitySim()
 {
-	delete[] area;
 }
 
 void CapycitySim::showMenu()
 {
 	int choice = 0;
-	cout << "Wilkommen beim Capybara-Bausimulator" << endl;
 	while (true)
 	{
 		cout << "1. Gebaeude setzen" << endl;
 		cout << "2. Bereich loeschen" << endl;
 		cout << "3. Ausgeben des aktuellen Bauplans" << endl;
-		cout << "4. Beenden" << endl;
+		cout << "4. Ausgeben aller gespeicherten Plaene" << endl;
+		cout << "5. Erstellen eines neuen Plans" << endl;
+		cout << "6. Beenden" << endl;
 		cout << "Bitte auswaehlen: ";
 		cin >> choice;
 		switch (choice)
 		{
 		case 1:
 			//    Gebäude setzen(mit darauffolgender Nachfrage nach Art, Länge, Breite und Position)
-			setBuilding(true);
+			currentPlan->setBuilding(true);
 			break;
 		case 2:
 			//    Bereich löschen(Betroffene Gebäude sollen nicht gelöscht, sondern dadurch nur verkleinert werden)
-			setBuilding(false);
+			currentPlan->setBuilding(false);
 			break;
 		case 3:
 			//    Ausgeben des aktuellen Bauplans
-			drawField();
+			drawField(true);
 			break;
 		case 4:
+			printAll();
+			break;
+		case 5:
+			newPlan();
+			break;
+		case 6:
 			//    Beenden des Programms
 			cout << "Auf Wiedersehen!";
 			return;
@@ -63,12 +59,17 @@ void CapycitySim::showMenu()
 	}
 } // showMenu()
 
-void CapycitySim::drawField()
+void CapycitySim::drawField(bool extra)
 {
+	Building* area = currentPlan->getArea();
+	int x = currentPlan->getX();
+	int y = currentPlan->getY();
 	int priceTotal = 0;
+	// Ausgeben der Kennzahl
+	cout << currentPlan->calcKennzahl() << endl;
 	for (int i = 0; i < y; i++)
 	{
-			cout << endl;
+		cout << endl;
 		for (int j = 0; j < x; j++)
 		{
 			cout << area[(i * x) + j].getLabel() << " ";
@@ -82,161 +83,68 @@ void CapycitySim::drawField()
 //Erweitere das Ausdrucken des Plans um die Darstellung der Gebäude mit ihren Labels, einer
 //Auflistung der Gebäude sowie deren benötigter Materialien, dem Einzelpreis eines Gebäudes
 //sowie dem Gesamtpreis von allen Gebäuden
-	for(int i = 0; i < y; i++)
+	if(extra)
 	{
-		for(int j = 0; j < x; j++)
+		for(int i = 0; i < y; i++)
 		{
-			if(!area[(i * x) + j].isEmpty)
+			for(int j = 0; j < x; j++)
 			{
-
-                		cout << endl;
-				cout << "x: " << j << " y: " << i << " "<< area[(i * x) + j].toString();
-			}
-		}
-	}
-	cout << endl << endl << "Gesamtpreis: " << priceTotal << endl;
-} // drawField()
-
-void CapycitySim::setBuilding(bool place)
-{
-	bool invalid = true;
-	int choice = 0;
-	int buildX = 0;
-	int buildY = 0;
-	int posX = 0;
-	int posY = 0;
-	//    Gebäude setzen(mit darauffolgender Nachfrage nach Art, Länge, Breite und Position)
-	// WASSERKRAFTWERK = 1, WINDKRAFTWERK = 2, SOLARPANELE = 3
-	// Gebaeude plazieren
-	if (place)
-	{
-		// Auswahl eines Gebaeudes
-		while (invalid)
-		{
-			cout << "Welche Art von Gebaeude moechten Sie setzen?" << endl;
-			cout << "1. Wasserkraftwerk" << endl;
-			cout << "2. Windkraftwerk" << endl;
-			cout << "3. Solarpanele" << endl;
-			cout << "Bitte waehlen Sie: ";
-			cin >> choice;
-			if (choice > 0 && choice <= 3)
-			{
-				invalid = false;
-			}
-			else
-			{
-				cout << "Ihre Eingabe war fehlerhaft, bitte probieren Sie es noch einmal" << endl;
-				cin.clear();
-				cin.ignore(100, '\n');
-			}
-		}
-		buildX = getVar(1, true);
-		buildY = getVar(1, false);
-	}
-	// Gebaeude entfernen
-	else
-	{
-		buildX = getVar(2, true);
-		buildY = getVar(2, false);
-	}
-	posX = getVar(3, true);
-	posY = getVar(3, false);
-	if (posX > x || posY > y)
-	{
-		cout << "Ungueltige Position!! Der Baumodus wird beendet.." << endl;
-	}
-	else if (posX + buildX - 1 > x || posY + buildY - 1 > y)
-	{
-		if (place)
-		{
-			cout << "Das Gebaeude ragt ueber die Baugrenzen hinaus!! Der Baumodus wird beendet.." << endl;
-		}
-		else
-		{
-			cout << "Sie befinden sich ausserhalb der Baugrenzen!! Der Baumodus wird beendet.." << endl;
-		}
-	}
-	else
-	{
-		for (int k = 0; k < 2; k++)
-		{
-			bool full = false;
-			for (int i = 0; i < buildY; i++)
-			{
-				for (int j = 0; j < buildX; j++)
+				if(!area[(i * x) + j].isEmpty)
 				{
-					if (place)
-					{
-						// Mit getLabel wird die Gebaeudeart ueberprueft
-						if (k == 0 && area[(i * x + posY * x) + j + posX].getLabel() != '0')
-						{
-							full = true;
-							cout << "In dem momentanem Baubereich steht schon ein Gebaeude!!" << endl;
-						}
-						else if (k == 1 && full == false)
-						{
-							if(choice == 1)
-							{
-								area[(i * x + posY * x) + j + posX] = Wasserkraftwerk();
-							}
-							else if(choice == 2)
-							{
-								area[(i * x + posY * x) + j + posX] = Windkraftwerk();
-							}
-							else if(choice == 3)
-							{
-								area[(i * x + posY * x) + j + posX] = Solarpanel();
-							}
-							else
-								;// Unreachable
-						}
-					}
-					else
-					{
-						area[(i * x + posY * x) + j + posX] = Building();
-					}
+					cout << endl;
+					cout << "x: " << j << " y: " << i << " " << area[(i * x) + j].toString();
 				}
 			}
 		}
+		cout << endl << endl << "Gesamtpreis: " << priceTotal << endl;
 	}
+} // drawField()
+
+void CapycitySim::newPlan()
+{
+	bool sameExists = false;
+	for (int i = 0; i < blueprints.size(); ++i)
+	{
+		if(*currentPlan == blueprints[i])
+			sameExists = true;
+	}
+	if(!sameExists)
+	{
+		blueprints.push_back(*currentPlan);
+	}
+
+        currentPlan = new Blueprint();
 }
 
-int CapycitySim::getVar(int type, bool isX)
+void CapycitySim::printAll()
 {
-	string heightOrLength = "";
-	int var = 1000;
-	if(isX)
-		heightOrLength = "Laenge";
-	else
-		heightOrLength = "Hoehe";
-	while (var == 1000)
-	{
-		// mit type wird die Art der Ausgabe geaendert
-		// 0 = Bauflaeche
-		if (type == 0)
-		{
-			cout << "Bitte die " << heightOrLength << " der Bauflaeche angeben: ";
-		}
-		else if (type == 1)
-		{
-			cout << "Bitte die " << heightOrLength << " des Gebaeudes angeben: ";
-		}
-		else if (type == 2)
-		{
-			cout << "Bitte die " << heightOrLength << " des zu entfernenden Baubereichs angeben: ";
-		}
-		else
-		{
-			if(isX)
-				cout << "Bitte x-Position angeben: ";
-			else
-				cout << "Bitte y-Position angeben: ";
-		}
-		cin >> var;
-		// Falls faulty-Input
-		cin.clear();
-		cin.ignore(100, '\n');
-	}
-	return var;
-} // getVar()
+    cout << "Aktueller Plan" << endl;
+    drawField(false);
+    cout << endl;
+    Blueprint* temp  = currentPlan;
+//
+//    auto bubbleSort= [](Blueprint& comp, Blueprint& other){return comp.calcKennzahl() < other.calcKennzahl();};
+//    for(int i = 0; i < blueprints.size() - 1; i++)
+//    {
+//        for(int j = i+1; j < blueprints.size(); j++)
+//        {
+//            if(bubbleSort)
+//            {
+//                std::swap(blueprints[i], blueprints[j]);
+//            }
+//        }
+//    }
+
+// Konnte es mit dem sortieren nicht lösen
+    for(int k = 0; k < blueprints.size() ; k++)
+    {
+        currentPlan = &blueprints[k];
+        drawField(false);
+        cout << endl;
+    }
+
+    currentPlan = temp;
+}
+
+
 

@@ -24,10 +24,12 @@
 		<Unit filename="include/Building.h" />
 		<Unit filename="include/CapycitySim.h" />
 		<Unit filename="include/Material.h" />
+		<Unit filename="include/blueprint.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Building.cpp" />
 		<Unit filename="src/CapycitySim.cpp" />
 		<Unit filename="src/Material.cpp" />
+		<Unit filename="src/blueprint.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

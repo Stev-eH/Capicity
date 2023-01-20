@@ -1,6 +1,8 @@
 #ifndef CAPYCITYSIM_H
 #define CAPYCITYSIM_H
 
+#include <vector>
+#include "blueprint.h"
 #include "Building.h"
 #include "Material.h"
 
@@ -8,19 +10,16 @@
 class CapycitySim
 {
     public:
-        Building* area;
-        int x;
-        int y;
-
-        //TO-DO:
-        //  Zuweisungsoperator
-        //  Kopierkonstruktor
+    std::vector<Blueprint> blueprints;
+    Blueprint* currentPlan;
         CapycitySim();
         ~CapycitySim();
-        int getVar(int type, bool isX);
-        void drawField();
+
+
+        void drawField(bool extra);
         void showMenu();
-        void setBuilding(bool place);
+        void newPlan();
+        void printAll();
 };
 
 #endif // CAPYCITYSIM_H
